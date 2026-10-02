@@ -30,3 +30,7 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+
+# Local audit/render scratch files
+/tmp/
+brand/Yamdy_Final_3.pdf
