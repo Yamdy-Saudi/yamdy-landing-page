@@ -1,5 +1,7 @@
 # Yamdy V2 performance investigation
 
+> Latest final-polish review: [FINAL_POLISH_REVIEW.md](FINAL_POLISH_REVIEW.md). Final desktop/mobile performance is 100/93, accessibility 100/100, LCP 0.596/2.639s, TBT 0/10ms and CLS 0.000405/0.000084. The new SVG map's initial-layout regression was resolved with containment and reserved aspect ratio. Intermediate and final audits are retained in `qa/polish-performance-summary.json`. Mobile LCP remains slightly above the 2.5s target. Earlier milestone evidence below remains historical.
+
 Measured on the local production Cloudflare preview with Lighthouse 13.5, installed Chrome, fresh audit profiles, October 3, 2026 (local time). Desktop uses the Lighthouse desktop preset; mobile uses its default simulated slow connection and 4× CPU slowdown. These are lab results, not deployed Core Web Vitals or field INP. Audits ran sequentially, after build/tests completed.
 
 ## Findings and actual results

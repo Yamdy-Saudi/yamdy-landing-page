@@ -1,5 +1,7 @@
 # Complete landing page review — October 3, 2026
 
+> Latest polish, responsive captures and performance verification: [FINAL_POLISH_REVIEW.md](FINAL_POLISH_REVIEW.md).
+
 The approved first five compositions are retained: cream hero, green dilemma, cream decision system, neutral operating loop, photographic product demo. The page now continues through green pilot proof, cream compounding flywheel, local Saudi editorial section, bold green final CTA and minimal footer. Navigation Results and Why Yamdy anchors are active. All app CTAs point to https://app.yamdy.net.
 
 Component rules, card reduction method, three Stitch references, source claims, generated imagery and legal TODOs: [COMPONENT_LANGUAGE.md](COMPONENT_LANGUAGE.md). Actual performance evidence and limitations: [PERFORMANCE.md](PERFORMANCE.md).

@@ -5,7 +5,7 @@ const fragments = [
   { name: "Pricing", value: "SAR 42 ?", className: "pricing-fragment", note: "set once" },
   { name: "Menu", value: "3 items", className: "menu-fragment", note: "" },
   { name: "Promo", value: "−15% ?", className: "promo-fragment", note: "guess?" },
-  { name: "Orders", value: "↓", className: "orders-fragment", note: "what changed?" },
+  { name: "Orders", value: "↓ declining?", className: "orders-fragment", note: "what changed?" },
   { name: "Visibility", value: "?", className: "visibility-fragment", note: "" },
   {
     name: "Reconciliation",
@@ -52,9 +52,14 @@ export function ChaosControl() {
           </div>
           {fragments.map((fragment) => (
             <div key={fragment.name} className={`delivery-fragment ${fragment.className}`}>
-              <span>{fragment.name}</span>
+              <span>
+                {fragment.name}
+                {fragment.name === "Orders" && <EditorialNote word={fragment.note} />}
+              </span>
               <strong>{fragment.value}</strong>
-              {fragment.note && <EditorialNote word={fragment.note} />}
+              {fragment.note && fragment.name !== "Orders" && (
+                <EditorialNote word={fragment.note} />
+              )}
             </div>
           ))}
         </div>

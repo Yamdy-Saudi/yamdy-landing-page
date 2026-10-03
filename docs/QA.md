@@ -1,5 +1,7 @@
 # Landing page QA
 
+> Latest final art-direction QA: [FINAL_POLISH_REVIEW.md](FINAL_POLISH_REVIEW.md), including all five viewport sizes and the four requested screenshots.
+
 > Current complete page: [COMPLETE_PAGE_REVIEW.md](COMPLETE_PAGE_REVIEW.md). Marketing/product rules and current content qualifications: [COMPONENT_LANGUAGE.md](COMPONENT_LANGUAGE.md). The earlier stage descriptions below are historical.
 
 > These results describe the superseded ten-section page. Current five-section review: [V2_STAGE_REVIEW.md](V2_STAGE_REVIEW.md), measured audits and limits: [PERFORMANCE.md](PERFORMANCE.md).

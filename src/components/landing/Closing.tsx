@@ -1,5 +1,5 @@
-import { MapPin, Store } from "lucide-react";
 import { AppLink, Logo } from "./Primitives";
+import { RiyadhOperations } from "./RiyadhOperations";
 
 export function SaudiContext() {
   return (
@@ -14,31 +14,13 @@ export function SaudiContext() {
             <br />
             <em>actually operate.</em>
           </h2>
-          <p className="local-copy">
-            Local market understanding. Delivery-app expertise.
-            <br />
-            Real restaurant operating context.
-          </p>
+          <ul className="local-knowledge">
+            <li>Local market understanding</li>
+            <li>Delivery-app expertise</li>
+            <li>Real restaurant operating context</li>
+          </ul>
         </div>
-        <div className="local-motif" aria-hidden="true">
-          <svg viewBox="0 0 440 380">
-            <path
-              className="local-lines"
-              d="M35 64 396 81M19 177 420 164M37 307 405 293M94 24 71 346M247 19 230 353M372 26 346 350M20 350 401 32"
-            />
-            <path className="local-route" d="M90 300 91 177 239 166 242 79 361 81" />
-            <circle cx="90" cy="300" r="5" />
-            <circle cx="361" cy="81" r="5" />
-          </svg>
-          <div className="local-restaurant">
-            <Store size={42} strokeWidth={1.2} />
-            <span>THE RESTAURANT</span>
-          </div>
-          <p className="local-location">
-            <MapPin size={21} /> Riyadh / الرياض
-          </p>
-          <p className="hand-note">close to the day-to-day.</p>
-        </div>
+        <RiyadhOperations />
       </div>
     </section>
   );
