@@ -1,54 +1,69 @@
-import { ArrowUpRight } from "lucide-react";
-import { Sketch } from "./Primitives";
+import { useId } from "react";
 
 export function Results() {
+  const hatch = useId().replace(/:/g, "");
   return (
-    <section id="results" className="results-section section-shell" aria-labelledby="results-title">
-      <div className="results-top">
-        <span className="section-kicker">EARLY SIGNAL. REAL POTENTIAL.</span>
-        <h2 id="results-title">
-          Better decisions.
-          <br />
-          Measured in the business.
-        </h2>
-      </div>
-      <div className="result-proof">
-        <div className="result-number">
-          <span>Early pilot</span>
-          <strong>
-            +30<span>%</span>
-            <ArrowUpRight aria-hidden="true" />
-          </strong>
-          <h3>profit in one month.</h3>
-          <p>
-            First pilot, Segment C. Result from one client; not a guarantee of future performance.
-          </p>
+    <section id="results" className="pilot-proof chapter" aria-labelledby="results-title">
+      <div className="chapter-shell">
+        <p className="editorial-eyebrow">EARLY PILOT / ONE CLIENT</p>
+        <div className="pilot-composition">
+          <div>
+            <h2 id="results-title">
+              <span className="pilot-number">
+                +30<span>%</span>
+              </span>
+              <span className="pilot-period">
+                profit
+                <br />
+                in one month.
+              </span>
+            </h2>
+            <p className="pilot-method">
+              Repriced the menu and built bundles that raised ticket size.
+            </p>
+          </div>
+          <div className="pilot-drawing">
+            <p className="hand-note">
+              first pilot
+              <br />
+              <span>Segment C</span>
+            </p>
+            <svg
+              viewBox="0 0 480 330"
+              role="img"
+              aria-label="Before and after illustration of the reported pilot profit increase; relative change only, not a plotted dataset"
+            >
+              <defs>
+                <pattern
+                  id={hatch}
+                  width="11"
+                  height="11"
+                  patternUnits="userSpaceOnUse"
+                  patternTransform="rotate(34)"
+                >
+                  <path d="M0 0V11" stroke="currentColor" strokeWidth="1" opacity=".6" />
+                </pattern>
+              </defs>
+              <path d="M28 267Q246 263 454 266" className="pilot-ink" />
+              <path
+                d="M81 265 79 141 184 143 186 264M282 264 284 98 390 96 387 265"
+                fill={`url(#${hatch})`}
+                className="pilot-ink"
+              />
+              <path d="M122 118Q218 2 316 73m-22-2 23 3-8-22" className="pilot-ink pilot-arrow" />
+              <text x="72" y="304">
+                month before
+              </text>
+              <text x="264" y="304">
+                ~30 days later
+              </text>
+            </svg>
+            <p className="relative-note">Relative change only.</p>
+          </div>
         </div>
-        <div className="result-chart">
-          <div className="chart-labels">
-            <span>Less guessing.</span>
-            <span className="annotation">
-              more learning.
-              <Sketch />
-            </span>
-          </div>
-          <svg
-            viewBox="0 0 600 240"
-            role="img"
-            aria-label="Conceptual upward line illustrating the reported pilot result, not a plotted dataset"
-          >
-            <path className="chart-grid-line" d="M20 55H580M20 115H580M20 175H580" />
-            <path
-              className="proof-line"
-              d="M20 209C67 202 83 220 126 181S179 179 210 163 256 165 300 130 354 151 391 95 438 114 473 68 516 92 564 24"
-            />
-            <path d="m543 25 22-4-3 23" className="proof-line" />
-          </svg>
-          <div className="chart-axis">
-            <span>Month before</span>
-            <span>30 days later</span>
-          </div>
-          <p>Reported pilot outcome. Conceptual illustration, not a historical chart.</p>
+        <div className="pilot-qualification">
+          <span>First pilot, Segment C · agency engagement</span>
+          <p>Result from one client. Not a guarantee of future performance.</p>
         </div>
       </div>
     </section>

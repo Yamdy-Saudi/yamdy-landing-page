@@ -1,53 +1,20 @@
-import { useEffect, useRef } from "react";
-import { useLandingMotion } from "@/hooks/use-landing-motion";
-import { track } from "@/lib/analytics";
+import { useRef } from "react";
 import { Navigation } from "./Navigation";
 import { Hero } from "./Hero";
 import { ChaosControl } from "./ChaosControl";
-import { ProductExplanation, ProductLoop } from "./ProductLoop";
+import { OrderedSystem } from "./OrderedSystem";
+import { EditorialLoop } from "./EditorialLoop";
 import { RecommendationDemo } from "./RecommendationDemo";
-import { ControlCenter } from "./ControlCenter";
 import { Results } from "./Results";
 import { Flywheel } from "./Flywheel";
-import { FinalCTA, Footer, SaudiContext } from "./Closing";
+import { SaudiContext, FinalCTA, Footer } from "./Closing";
+import { useEditorialMotion } from "@/hooks/use-editorial-motion";
 
 export function LandingPage() {
-  const ref = useRef<HTMLDivElement>(null);
-  useLandingMotion(ref, "page");
-  useEffect(() => {
-    const viewed = new Set<string>();
-    const observer = new IntersectionObserver(
-      (entries) =>
-        entries.forEach((entry) => {
-          if (entry.isIntersecting && !viewed.has(entry.target.id)) {
-            viewed.add(entry.target.id);
-            track(entry.target.id === "results" ? "results_section_view" : "product_section_view");
-            observer.unobserve(entry.target);
-          }
-        }),
-      { threshold: 0.25 },
-    );
-    ref.current?.querySelectorAll("#product, #results").forEach((el) => observer.observe(el));
-    const reveal = new IntersectionObserver(
-      (entries) =>
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add("in-view");
-            reveal.unobserve(entry.target);
-          }
-        }),
-      { threshold: 0.15 },
-    );
-    ref.current
-      ?.querySelectorAll(".operations-grid, .flywheel-visual, h2")
-      .forEach((el) => reveal.observe(el));
-    return () => {
-      observer.disconnect();
-      reveal.disconnect();
-    };
-  }, []);
+  const root = useRef<HTMLDivElement>(null);
+  useEditorialMotion(root);
   return (
-    <div className="landing-page" ref={ref}>
+    <div className="landing-page editorial" ref={root}>
       <a className="skip-link" href="#main">
         Skip to content
       </a>
@@ -55,10 +22,9 @@ export function LandingPage() {
       <main id="main">
         <Hero />
         <ChaosControl />
-        <ProductExplanation />
-        <ProductLoop />
+        <OrderedSystem />
+        <EditorialLoop />
         <RecommendationDemo />
-        <ControlCenter />
         <Results />
         <Flywheel />
         <SaudiContext />

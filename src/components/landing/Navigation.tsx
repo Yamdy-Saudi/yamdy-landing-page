@@ -19,7 +19,13 @@ export function Navigation() {
         </a>
         <div className="desktop-nav">
           {links.map(([label, href]) => (
-            <a key={href} href={href} onClick={() => track("nav_click", { section: label! })}>
+            <a
+              key={href}
+              href={href}
+              onClick={() => {
+                track("nav_click", { section: label! });
+              }}
+            >
               {label}
             </a>
           ))}

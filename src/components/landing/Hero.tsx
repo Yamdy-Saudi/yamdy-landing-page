@@ -1,100 +1,83 @@
-import { ArrowRight, Check, SlidersHorizontal, TrendingUp } from "lucide-react";
-import { AppLink, Sketch } from "./Primitives";
+import { ArrowDown, ArrowRight } from "lucide-react";
+import { AppLink } from "./Primitives";
 import { Scene } from "./Scene";
+import { EditorialNote } from "./EditorialNote";
 
 export function Hero() {
   return (
-    <section className="hero section-shell" aria-labelledby="hero-title">
-      <div className="hero-copy">
-        <div className="hero-eyebrow">
-          <span className="status-dot" /> A NEXT MOVE FOR EVERY RESTAURANT
-        </div>
-        <h1 id="hero-title">
-          The growth{" "}
-          <span className="brain-word">
-            brain
-            <Sketch kind="underline" />
-          </span>{" "}
-          for restaurants on delivery apps.
-        </h1>
-        <p className="hero-description">
-          Yamdy watches your delivery business, finds the next move, and helps you execute it.
-          Starting with HungerStation.
-        </p>
-        <div className="hero-actions">
-          <AppLink event="hero_start_click" location="hero" />
-          <a className="text-link" href="#how-it-works">
-            See how it works <ArrowRight size={17} />
-          </a>
-        </div>
-        <p className="hero-context">Built in Riyadh. Made for restaurant operators.</p>
-      </div>
-      <div
-        className="hero-art"
-        role="img"
-        aria-label="Menu and delivery signals pass through a Yamdy logo-inspired intelligence sculpture and become recommendations requiring your approval."
-      >
-        <div className="art-grid" />
-        <div className="art-orbit orbit-one" />
-        <div className="art-orbit orbit-two" />
-        <Scene mode="brain" />
-        <div className="signal-card signal-price">
-          <span className="signal-icon">
-            <SlidersHorizontal size={16} />
-          </span>
-          <div>
-            <small>MENU PRICING</small>
-            <b>
-              SAR 42 <span className="muted-arrow">→</span> <em>39</em>
-            </b>
-          </div>
-          <span className="mini-tag">Test</span>
-        </div>
-        <div className="signal-card signal-order">
-          <span className="signal-icon purple-icon">
-            <TrendingUp size={17} />
-          </span>
-          <div>
-            <small>PERFORMANCE SIGNAL</small>
-            <b>Find the next move.</b>
-          </div>
-          <svg viewBox="0 0 70 30" aria-hidden="true">
-            <path
-              d="M2 25l12-8 11 4 13-14 12 5L68 2"
-              fill="none"
-              stroke="currentColor"
-              strokeWidth="2"
-            />
-          </svg>
-        </div>
-        <div className="signal-card signal-decision">
-          <span className="decision-check">
-            <Check size={17} />
-          </span>
-          <div>
-            <small>YAMDY RECOMMENDS</small>
-            <b>A better price. Your call.</b>
-            <span>
-              Ready for your approval <ArrowRight size={13} />
+    <section className="editorial-hero" id="product" aria-labelledby="hero-title">
+      <div className="hero-composition">
+        <div className="editorial-copy">
+          <p className="editorial-eyebrow">A NEXT MOVE FOR EVERY RESTAURANT</p>
+          <h1 id="hero-title">
+            <span className="headline-line">
+              The <em>growth brain</em>
             </span>
+            <span className="headline-line">for restaurants</span>
+            <span className="headline-line">on delivery apps.</span>
+          </h1>
+          <p className="editorial-description">
+            Yamdy watches your delivery business, finds the next move, and helps you execute it.
+            Starting with HungerStation.
+          </p>
+          <div className="editorial-actions">
+            <AppLink event="hero_start_click" location="hero" />
+            <a href="#how-it-works" className="text-link">
+              See how it works <ArrowRight size={19} aria-hidden="true" />
+            </a>
           </div>
+          <p className="editorial-context">Built in Riyadh. Made for restaurant operators.</p>
         </div>
-        <div className="annotation annotation-observe">
-          observe
-          <Sketch />
+        <div
+          className="logo-stage"
+          aria-label="Delivery signals enter the official Yamdy logo and become a recommendation for your approval."
+        >
+          <Scene mode="brain" />
+          <div className="signal-rail" aria-hidden="true">
+            <i />
+            <i />
+            <i />
+          </div>
+          <div className="rail-signals">
+            <div className="rail-signal price-signal">
+              <small>PRICE</small>
+              <strong>SAR 42</strong>
+              <EditorialNote word="observe" />
+            </div>
+            <div className="rail-signal menu-signal">
+              <small>MENU</small>
+              <strong>3 items need attention</strong>
+            </div>
+            <div className="rail-signal performance-signal">
+              <small>PERFORMANCE</small>
+              <strong>Conversion −8%</strong>
+            </div>
+          </div>
+          <div className="recommendation-fragment">
+            <span className="output-anchor" aria-hidden="true" />
+            <EditorialNote word="decide" edge="left" />
+            <div className="recommendation-heading">
+              <span>YAMDY RECOMMENDS</span>
+            </div>
+            <strong>CLASSIC BURGER</strong>
+            <div className="recommendation-price">
+              <span>SAR 42</span>
+              <ArrowRight size={19} aria-hidden="true" />
+              <b>SAR 39</b>
+            </div>
+            <div className="approval-status">
+              <i /> READY FOR APPROVAL
+            </div>
+          </div>
+          <p className="stage-footnote">Illustrative example</p>
         </div>
-        <div className="annotation annotation-decide">
-          decide
-          <Sketch />
-        </div>
-        <div className="annotation annotation-learn">test. measure. learn.</div>
-        <span className="art-caption">ILLUSTRATIVE PRODUCT CONCEPT</span>
       </div>
-      <div className="hero-bottom">
-        <span>YOUR DELIVERY CHANNEL. WITH A DIRECTION.</span>
-        <span>
-          Intelligence above the pipes <ArrowRight size={15} />
-        </span>
+      <a className="hero-scroll-cue" href="#how-it-works">
+        <span>THE NEXT MOVE STARTS WITH WHAT YOU SEE.</span>
+        <ArrowDown size={18} aria-hidden="true" />
+      </a>
+      <div className="baseline-bridge" aria-hidden="true">
+        <span />
       </div>
     </section>
   );

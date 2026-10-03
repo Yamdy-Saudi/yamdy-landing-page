@@ -12,6 +12,22 @@ afterEach(() => {
   vi.unstubAllGlobals();
 });
 describe("Recommendation approval contract", () => {
+  it("cancels a draft price without changing the recommendation", () => {
+    render(<RecommendationDemo />);
+    fireEvent.click(screen.getByRole("button", { name: "Edit" }));
+    fireEvent.change(screen.getByLabelText("Your price (SAR)"), { target: { value: "37" } });
+    fireEvent.click(screen.getByRole("button", { name: "Cancel" }));
+    expect(screen.getByText("SAR 39")).toBeInTheDocument();
+    expect(screen.getByRole("button", { name: "Approve" })).toBeInTheDocument();
+  });
+  it("does not approve an invalid price", () => {
+    render(<RecommendationDemo />);
+    fireEvent.click(screen.getByRole("button", { name: "Edit" }));
+    fireEvent.change(screen.getByLabelText("Your price (SAR)"), { target: { value: "0" } });
+    fireEvent.submit(screen.getByLabelText("Your price (SAR)").closest("form")!);
+    expect(screen.getByRole("alert")).toHaveTextContent("between SAR 1 and SAR 999");
+    expect(screen.getByRole("button", { name: "Save & approve" })).toBeInTheDocument();
+  });
   it("publishes only after approval and identifies the outcome as simulated", async () => {
     render(<RecommendationDemo />);
     expect(screen.queryByText("Orders ↑", { exact: false })).toBeNull();

@@ -1,5 +1,9 @@
 # Landing page QA
 
+> Current complete page: [COMPLETE_PAGE_REVIEW.md](COMPLETE_PAGE_REVIEW.md). Marketing/product rules and current content qualifications: [COMPONENT_LANGUAGE.md](COMPONENT_LANGUAGE.md). The earlier stage descriptions below are historical.
+
+> These results describe the superseded ten-section page. Current five-section review: [V2_STAGE_REVIEW.md](V2_STAGE_REVIEW.md), measured audits and limits: [PERFORMANCE.md](PERFORMANCE.md).
+
 Validated locally on 2026-10-02 against the generated Cloudflare worker, served by `npm run preview` at http://127.0.0.1:4173. No deployment or authenticated-app modification was performed.
 
 ## Automated verification

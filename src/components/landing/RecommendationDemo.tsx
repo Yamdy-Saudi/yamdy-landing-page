@@ -1,13 +1,7 @@
 import { useEffect, useRef, useState } from "react";
-import {
-  Check,
-  ChevronRight,
-  RotateCcw,
-  Sparkles,
-  TrendingUp,
-  UtensilsCrossed,
-} from "lucide-react";
+import { Check, ChevronRight, RotateCcw, TrendingUp } from "lucide-react";
 import { track } from "@/lib/analytics";
+import { AppLink } from "./Primitives";
 
 type Status = "ready" | "editing" | "approved" | "publishing" | "live" | "ignored";
 export function RecommendationDemo() {
@@ -15,6 +9,7 @@ export function RecommendationDemo() {
   const [price, setPrice] = useState("39");
   const [error, setError] = useState("");
   const started = useRef(false);
+  const previousPrice = useRef("39");
   const begin = () => {
     if (!started.current) {
       track("interactive_demo_started");
@@ -46,14 +41,27 @@ export function RecommendationDemo() {
   }
   const inProgress = ["approved", "publishing", "live"].includes(status);
   return (
-    <section className="demo-section section-shell" aria-labelledby="demo-title">
+    <section
+      className="demo-section story-section"
+      id="recommendation-demo"
+      aria-labelledby="demo-title"
+    >
+      <img
+        className="demo-photograph"
+        src="/images/yamdy-kitchen.webp"
+        alt=""
+        width="1536"
+        height="1024"
+        loading="lazy"
+        decoding="async"
+        fetchPriority="low"
+      />
       <div className="demo-copy">
-        <span className="section-kicker">TAKE THE NEXT MOVE FOR A SPIN</span>
+        <span className="editorial-eyebrow">YOUR NEXT MOVE, IN YOUR HANDS</span>
         <h2 id="demo-title">
-          A recommendation.
-          <br />A reason.
+          Real recommendations.
           <br />
-          <span className="green-text">Your decision.</span>
+          <span>Real actions.</span>
         </h2>
         <p>
           No black box. No changes behind your back. Try a simple price recommendation and see how
@@ -64,28 +72,28 @@ export function RecommendationDemo() {
           <br />
           No changes to a real restaurant.
         </span>
+        <div className="demo-context-rail" aria-hidden="true">
+          <span>THE PASS</span>
+          <i />
+          <span>THE NEXT ORDER</span>
+        </div>
       </div>
       <div className="demo-workspace">
         <div className="workspace-top">
           <span>
-            <span className="status-dot" /> Yamdy recommendations
+            <span className="status-dot" /> Opportunities / Pricing
           </span>
           <span>DEMO</span>
         </div>
         <div className="recommendation-card">
           <div className="recommendation-top">
-            <span className="recommendation-type">
-              <Sparkles size={15} /> Pricing opportunity
-            </span>
+            <span className="recommendation-type">Pricing Opportunity</span>
             <span className="example-label">Illustrative example</span>
           </div>
           <div className="menu-item">
-            <span className="burger-mark">
-              <UtensilsCrossed size={28} strokeWidth={1.25} />
-            </span>
             <div>
-              <h3>Classic Burger</h3>
-              <p>Menu / HungerStation</p>
+              <h3>Reduce Classic Burger price</h3>
+              <p>Classic Burger · HungerStation</p>
             </div>
           </div>
           <div className="price-comparison">
@@ -95,7 +103,7 @@ export function RecommendationDemo() {
             </div>
             <ChevronRight size={23} />
             <div>
-              <span>Yamdy recommends</span>
+              <span>Recommended</span>
               <b className="green-text">SAR {price || "…"}</b>
             </div>
           </div>
@@ -136,6 +144,7 @@ export function RecommendationDemo() {
                   type="button"
                   onClick={() => {
                     setStatus("ready");
+                    setPrice(previousPrice.current);
                     setError("");
                   }}
                 >
@@ -153,6 +162,7 @@ export function RecommendationDemo() {
                 className="button button-secondary"
                 onClick={() => {
                   begin();
+                  previousPrice.current = price;
                   setStatus("editing");
                 }}
               >
@@ -170,6 +180,12 @@ export function RecommendationDemo() {
             </div>
           )}
           <div aria-live="polite" aria-atomic="true" className="demo-status">
+            {(status === "ready" || status === "editing") && (
+              <div className="approval-contract">
+                <span>AWAITING YOUR APPROVAL</span>
+                <p>Nothing is published until you approve.</p>
+              </div>
+            )}
             {inProgress && (
               <>
                 <div className="publication-stages">
@@ -190,7 +206,9 @@ export function RecommendationDemo() {
                   <div className="outcome-panel">
                     <TrendingUp size={24} />
                     <div>
+                      <span className="example-label">ILLUSTRATIVE RESULT</span>
                       <b>Orders ↑ &nbsp; Conversion ↑</b>
+                      <p>Revenue impact · estimated</p>
                       <p>Simulated outcome, not historical performance. Actual results can vary.</p>
                     </div>
                   </div>
@@ -205,9 +223,12 @@ export function RecommendationDemo() {
             )}
           </div>
           {(status === "live" || status === "ignored") && (
-            <button className="reset-button" onClick={reset}>
-              <RotateCcw size={14} /> Try again
-            </button>
+            <div className="demo-completion">
+              <AppLink location="recommendation demo">Try Yamdy with your restaurant</AppLink>
+              <button className="reset-button" onClick={reset}>
+                <RotateCcw size={14} /> Try again
+              </button>
+            </div>
           )}
         </div>
         <div className="demo-workspace-footer">

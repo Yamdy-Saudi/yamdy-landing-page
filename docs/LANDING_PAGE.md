@@ -1,5 +1,9 @@
 # Landing page architecture
 
+> Current complete page: [COMPLETE_PAGE_REVIEW.md](COMPLETE_PAGE_REVIEW.md). Marketing/product rules and current content qualifications: [COMPONENT_LANGUAGE.md](COMPONENT_LANGUAGE.md). The earlier stage descriptions below are historical.
+
+> Current review milestone: [V2_STAGE_REVIEW.md](V2_STAGE_REVIEW.md). The page renders navigation plus the approved hero, green dilemma, ordered system, operating loop and interactive demo. See [PERFORMANCE.md](PERFORMANCE.md) for the offline GLB pipeline. The ten-section architecture below documents the superseded version.
+
 The public website preserves TanStack Start, React 19, Vite, Tailwind 4 and strict TypeScript. It is separate from the authenticated application. No authenticated application code or data was accessed or modified.
 
 ## Components and sections

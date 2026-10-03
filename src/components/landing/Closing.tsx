@@ -1,33 +1,44 @@
-import { ArrowRight, MapPin } from "lucide-react";
+import { MapPin, Store } from "lucide-react";
 import { AppLink, Logo } from "./Primitives";
-import { track } from "@/lib/analytics";
 
 export function SaudiContext() {
   return (
-    <section className="saudi-section section-shell" aria-labelledby="saudi-title">
-      <div className="riyadh-grid" aria-hidden="true">
-        <svg viewBox="0 0 500 250">
-          <path d="M0 75h500M0 170h500M100 0v250M220 0v250M380 0v250M0 220 310 0M0 0l360 250" />
-        </svg>
-        <span className="map-location location-one" />
-        <span className="map-location location-two" />
-        <span className="map-location location-three" />
-        <span className="riyadh-label">
-          <MapPin size={16} /> Riyadh / الرياض
-        </span>
-      </div>
-      <div>
-        <h2 id="saudi-title">
-          Built in Riyadh.
-          <br />
-          For how restaurants
-          <br />
-          actually operate.
-        </h2>
-        <p>
-          Local market understanding. Delivery-app expertise. A product shaped around the restaurant
-          operator’s day.
-        </p>
+    <section id="saudi-fb" className="local-section chapter" aria-labelledby="saudi-title">
+      <div className="chapter-shell local-layout">
+        <div>
+          <p className="editorial-eyebrow">BUILT FOR SAUDI F&B</p>
+          <h2 id="saudi-title">
+            Built in Riyadh
+            <br />
+            for how restaurants
+            <br />
+            <em>actually operate.</em>
+          </h2>
+          <p className="local-copy">
+            Local market understanding. Delivery-app expertise.
+            <br />
+            Real restaurant operating context.
+          </p>
+        </div>
+        <div className="local-motif" aria-hidden="true">
+          <svg viewBox="0 0 440 380">
+            <path
+              className="local-lines"
+              d="M35 64 396 81M19 177 420 164M37 307 405 293M94 24 71 346M247 19 230 353M372 26 346 350M20 350 401 32"
+            />
+            <path className="local-route" d="M90 300 91 177 239 166 242 79 361 81" />
+            <circle cx="90" cy="300" r="5" />
+            <circle cx="361" cy="81" r="5" />
+          </svg>
+          <div className="local-restaurant">
+            <Store size={42} strokeWidth={1.2} />
+            <span>THE RESTAURANT</span>
+          </div>
+          <p className="local-location">
+            <MapPin size={21} /> Riyadh / الرياض
+          </p>
+          <p className="hand-note">close to the day-to-day.</p>
+        </div>
       </div>
     </section>
   );
@@ -35,9 +46,10 @@ export function SaudiContext() {
 
 export function FinalCTA() {
   return (
-    <section className="final-cta" aria-labelledby="final-title">
-      <div className="section-shell">
-        <span className="final-kicker">YOUR NEXT MOVE STARTS HERE.</span>
+    <section className="growth-finale chapter" aria-labelledby="final-title">
+      <div className="chapter-shell">
+        <Logo light />
+        <p className="editorial-eyebrow">YOUR NEXT MOVE STARTS HERE.</p>
         <h2 id="final-title">
           Stop managing delivery apps.
           <br />
@@ -57,22 +69,21 @@ export function FinalCTA() {
 
 export function Footer() {
   return (
-    <footer className="site-footer section-shell">
-      <div className="footer-top">
-        <a href="#" aria-label="Yamdy home">
-          <Logo />
-        </a>
-        <p>Riyadh, Saudi Arabia</p>
-        <div className="footer-links">
-          {[
-            ["Product", "#product"],
-            ["How it works", "#how-it-works"],
-            ["Results", "#results"],
-          ].map(([label, href]) => (
-            <a key={href} href={href} onClick={() => track("nav_click", { section: label! })}>
-              {label}
-            </a>
-          ))}
+    <footer className="minimal-footer">
+      <div className="chapter-shell footer-main">
+        <div>
+          <a href="#product" aria-label="Yamdy home">
+            <Logo />
+          </a>
+          <p>Riyadh, Saudi Arabia</p>
+        </div>
+        <nav aria-label="Footer navigation">
+          <a href="#product">Product</a>
+          <a href="#how-it-works">How it works</a>
+          <a href="#results">Results</a>
+          <a href="#why-yamdy">Why Yamdy</a>
+        </nav>
+        <div className="footer-access">
           <AppLink className="footer-app-link" event="signin_click">
             Sign in
           </AppLink>
@@ -81,12 +92,17 @@ export function Footer() {
           </AppLink>
         </div>
       </div>
-      <div className="footer-bottom">
+      <div className="chapter-shell footer-end">
         <span>© {new Date().getFullYear()} Yamdy</span>
-        <span>
-          The growth brain for your delivery channel.
-          <ArrowRight size={14} />
-        </span>
+        <div aria-label="Legal pages pending publication">
+          <span aria-disabled="true" title="Privacy policy pending publication">
+            Privacy
+          </span>
+          <span aria-disabled="true" title="Terms pending publication">
+            Terms
+          </span>
+        </div>
+        <span>The growth brain for your delivery channel.</span>
       </div>
     </footer>
   );

@@ -1,68 +1,67 @@
-import {
-  ArrowRight,
-  BadgePercent,
-  ChartNoAxesCombined,
-  ClipboardList,
-  Layers,
-  Megaphone,
-  Package,
-  UtensilsCrossed,
-  SlidersHorizontal,
-} from "lucide-react";
-import { useRef } from "react";
-import { useLandingMotion } from "@/hooks/use-landing-motion";
-import { Sketch } from "./Primitives";
-
-const cards = [
-  { title: "Menu", detail: "Listings & availability", Icon: UtensilsCrossed },
-  { title: "Pricing", detail: "Set once. Then what?", Icon: SlidersHorizontal },
-  { title: "Promotions", detail: "A discount or a guess?", Icon: BadgePercent },
-  { title: "Campaigns", detail: "Which move is working?", Icon: Megaphone },
-  { title: "Orders", detail: "Signals without a story", Icon: ClipboardList },
-  { title: "Bundles", detail: "Better together?", Icon: Package },
-  { title: "Performance", detail: "What actually changed?", Icon: ChartNoAxesCombined },
-  { title: "Delivery channel", detail: "Starting with HungerStation", Icon: Layers },
+import { EditorialNote } from "./EditorialNote";
+import { Connections } from "./Connections";
+import { Store } from "lucide-react";
+const fragments = [
+  { name: "Pricing", value: "SAR 42 ?", className: "pricing-fragment", note: "set once" },
+  { name: "Menu", value: "3 items", className: "menu-fragment", note: "" },
+  { name: "Promo", value: "−15% ?", className: "promo-fragment", note: "guess?" },
+  { name: "Orders", value: "↓", className: "orders-fragment", note: "what changed?" },
+  { name: "Visibility", value: "?", className: "visibility-fragment", note: "" },
+  {
+    name: "Reconciliation",
+    value: "…",
+    className: "reconciliation-fragment",
+    note: "who’s watching this?",
+  },
 ];
-
 export function ChaosControl() {
-  const ref = useRef<HTMLElement>(null);
-  useLandingMotion(ref, "chaos");
   return (
-    <section className="problem-section section-shell" ref={ref} aria-labelledby="problem-title">
-      <div className="section-intro">
-        <span className="section-kicker">THE DAILY DELIVERY DILEMMA</span>
-        <h2 id="problem-title">
-          Your biggest digital channel.
-          <br />
-          <span className="text-muted">Running on autopilot.</span>
-        </h2>
-        <p>
-          Prices set once. Promotions guessed. Payouts, commissions and cancellations waiting to be
-          reconciled. Plenty of activity. Too little direction.
-        </p>
-      </div>
-      <div className="chaos-board">
-        <div className="chaos-note annotation">
-          a lot to manage.
-          <Sketch />
+    <section className="delivery-dilemma" id="how-it-works" aria-labelledby="dilemma-title">
+      <div className="dilemma-shell">
+        <div className="dilemma-heading">
+          <p className="editorial-eyebrow">THE DAILY DELIVERY DILEMMA</p>
+          <h2 id="dilemma-title">
+            Your biggest
+            <br />
+            digital channel.
+            <br />
+            <em>Running on autopilot.</em>
+          </h2>
+          <p className="dilemma-description">
+            Prices set once. Promotions guessed.
+            <br />A hundred signals. No clear next move.
+          </p>
+          <span className="dilemma-index">01 / THE DAILY DILEMMA</span>
         </div>
-        <div className="operations-grid">
-          {cards.map(({ title, detail, Icon }) => (
-            <div className="operation-card" key={title}>
-              <Icon size={24} strokeWidth={1.5} />
-              <h3>{title}</h3>
-              <p>{detail}</p>
+        <div
+          className="fragment-composition"
+          aria-label="Pricing, menu, promotions, orders, visibility and reconciliation are scattered around the restaurant."
+        >
+          <Connections selector=".delivery-fragment" center=".restaurant-point" />
+          <div className="restaurant-point">
+            <span>RESTAURANT</span>
+            <Store size={40} strokeWidth={1.2} aria-hidden="true" />
+            <img
+              className="chaos-yamdy-entry"
+              src="/brand/yamdy-logo.svg"
+              alt=""
+              aria-hidden="true"
+              width="270"
+              height="120"
+            />
+          </div>
+          {fragments.map((fragment) => (
+            <div key={fragment.name} className={`delivery-fragment ${fragment.className}`}>
+              <span>{fragment.name}</span>
+              <strong>{fragment.value}</strong>
+              {fragment.note && <EditorialNote word={fragment.note} />}
             </div>
           ))}
         </div>
-        <div className="control-layer">
-          <div>
-            <span className="control-line" />
-            <b>yamdy</b>
-            <span>One decision layer. A clear next move.</span>
-          </div>
-          <ArrowRight size={24} />
-        </div>
+      </div>
+      <div className="dilemma-bottom">
+        <span>FROM SCATTERED SIGNALS</span>
+        <span>TOWARD A CLEARER DECISION ↗</span>
       </div>
     </section>
   );

@@ -1,96 +1,69 @@
-import { useRef } from "react";
-import { useLandingMotion } from "@/hooks/use-landing-motion";
-import { ArrowUpRight } from "lucide-react";
-import { Scene } from "./Scene";
-import { Sketch } from "./Primitives";
-
 export function Flywheel() {
-  const ref = useRef<HTMLElement>(null);
-  useLandingMotion(ref, "flywheel");
   return (
     <section
       id="why-yamdy"
-      ref={ref}
-      className="flywheel-section section-shell"
+      className="compounding-section chapter"
       aria-labelledby="flywheel-title"
     >
-      <div className="flywheel-heading">
+      <div className="chapter-shell">
+        <p className="editorial-eyebrow">WHY YAMDY GETS BETTER</p>
         <h2 id="flywheel-title">
-          Every experiment
+          Every experiment makes
           <br />
-          makes the next
-          <br />
-          <span className="green-text">move smarter.</span>
+          <em>the next decision smarter.</em>
         </h2>
-        <p>A better playbook grows one measured decision at a time.</p>
-      </div>
-      <div className="flywheel-layout">
-        <div
-          className="flywheel-visual"
-          role="img"
-          aria-label="More experiments lead to a better playbook, better decisions and better results, feeding the next experiment."
-        >
-          <div className="flywheel-orbit">
-            <svg viewBox="0 0 440 440" aria-hidden="true">
-              <circle
-                cx="220"
-                cy="220"
-                r="148"
-                fill="none"
-                stroke="currentColor"
-                strokeWidth="1.5"
-                strokeDasharray="4 12"
-              />
+        <div className="compounding-layout">
+          <div
+            className="compounding-visual"
+            data-reveal
+            role="img"
+            aria-label="More experiments, better playbook, better decisions, better results, then more experiments. Yamdy is at the center."
+          >
+            <svg viewBox="0 0 600 520" aria-hidden="true">
               <path
-                d="M220 72a148 148 0 0 1 148 148"
-                fill="none"
-                stroke="currentColor"
-                strokeWidth="3"
+                className="compounding-path"
+                pathLength="1000"
+                d="M283 68C398 47 526 134 516 267S420 454 289 450 71 353 80 246 157 82 269 69m-19-13 21 13-16 17"
               />
-              <path d="m356 204 13 18 12-18" fill="none" stroke="currentColor" strokeWidth="3" />
             </svg>
+            <div className="compounding-center">
+              <img src="/brand/yamdy-logo.svg" alt="" width="270" height="120" />
+              <span>MEASURE. LEARN. REPEAT.</span>
+            </div>
+            <span className="compound-label compound-top">MORE EXPERIMENTS</span>
+            <span className="compound-label compound-right">BETTER PLAYBOOK</span>
+            <span className="compound-label compound-bottom">BETTER DECISIONS</span>
+            <span className="compound-label compound-left">BETTER RESULTS</span>
+            <p className="hand-note compound-note">the learning stays.</p>
           </div>
-          <Scene mode="flywheel" />
-          <div className="flywheel-center">
-            <b>yamdy</b>
-            <span>Learn. Then go again.</span>
-          </div>
-          <span className="wheel-label wheel-top">More experiments</span>
-          <span className="wheel-label wheel-right">Better playbook</span>
-          <span className="wheel-label wheel-bottom">Better decisions</span>
-          <span className="wheel-label wheel-left">Better results</span>
-          <span className="annotation flywheel-note">
-            it compounds.
-            <Sketch kind="underline" />
-          </span>
-        </div>
-        <div className="advantage-list">
-          {[
-            [
-              "Experiment velocity",
-              "Learn while you operate.",
-              "Make focused changes, measure the effect and build a playbook from what you learn.",
-            ],
-            [
-              "Delivery-channel expertise",
-              "Built around the channel.",
-              "Designed for the realities of restaurant delivery operations. Starting with HungerStation.",
-            ],
-            [
-              "Built above the pipes",
-              "Turn connections into decisions.",
-              "Data movement is the foundation. Yamdy adds the intelligence and approval layer above it.",
-            ],
-          ].map(([label, title, copy]) => (
-            <article key={label}>
-              <span>
-                {label}
-                <ArrowUpRight size={18} />
-              </span>
-              <h3>{title}</h3>
-              <p>{copy}</p>
-            </article>
-          ))}
+          <ol className="strategic-notes">
+            {[
+              [
+                "EXPERIMENT VELOCITY",
+                "A portfolio learns faster.",
+                "Test across restaurants, separating signal from noise and building a playbook from measured changes.",
+              ],
+              [
+                "AGGREGATOR ACCESS",
+                "Relationships beyond the API.",
+                "Ads, top listings, pushes and homepage slots run through account managers. Local relationships matter.",
+              ],
+              [
+                "BUILT ABOVE THE PIPES",
+                "Connect once. Focus on decisions.",
+                "Plug into partner APIs and existing middleware, then put intelligence and approval above the connection.",
+              ],
+            ].map(([label, title, copy], index) => (
+              <li key={label}>
+                <span className="advantage-number">0{index + 1}</span>
+                <div>
+                  <p className="editorial-eyebrow">{label}</p>
+                  <h3>{title}</h3>
+                  <p>{copy}</p>
+                </div>
+              </li>
+            ))}
+          </ol>
         </div>
       </div>
     </section>

@@ -6,7 +6,7 @@ export function Logo({ light = false }: { light?: boolean }) {
   return (
     <img
       className={`brand-logo${light ? " brand-logo-light" : ""}`}
-      src="/brand/yamdy-logo.png"
+      src="/brand/yamdy-logo.svg"
       alt="Yamdy"
       width="270"
       height="120"
