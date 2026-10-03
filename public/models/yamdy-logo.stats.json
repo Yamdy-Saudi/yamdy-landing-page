@@ -1,0 +1,16 @@
+{
+  "sourceSha256": "6a5f2efca930c412f2bc7933817f8acb1d35bb0944a3031322fb7edb79ad7b29",
+  "shapes": 12,
+  "holes": 4,
+  "curveSegments": 8,
+  "depth": 16,
+  "meshes": 1,
+  "primitives": 2,
+  "vertices": 10984,
+  "triangles": 7296,
+  "bytes": 309228,
+  "gzipBytes": 92724,
+  "previousVertices": 49008,
+  "nodeOriginalExtrusionMs": 265,
+  "nodeGenerationMs": 915
+}

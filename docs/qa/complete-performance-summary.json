@@ -1,0 +1,97 @@
+{
+  "date": "2026-10-03",
+  "environment": "local production Cloudflare preview, Lighthouse 13.5, fresh Chrome profiles",
+  "profiles": {
+    "desktop": {
+      "performance": 99,
+      "accessibility": 100,
+      "metrics": {
+        "first-contentful-paint": 741.3664000000001,
+        "largest-contentful-paint": 810.8664000000001,
+        "total-blocking-time": 0,
+        "cumulative-layout-shift": 0.000404531987418309,
+        "max-potential-fid": 39
+      },
+      "marks": [
+        {
+          "name": "yamdy:enhancement-requested",
+          "afterRequestMs": 0
+        },
+        {
+          "name": "yamdy:model-loaded",
+          "afterRequestMs": 417.998
+        },
+        {
+          "name": "yamdy:compile-start",
+          "afterRequestMs": 419.592
+        },
+        {
+          "name": "yamdy:first-frame",
+          "afterRequestMs": 489.893
+        },
+        {
+          "name": "yamdy:3d-ready",
+          "afterRequestMs": 491.127
+        }
+      ],
+      "longTasks": [
+        {
+          "ms": 284.495,
+          "afterRequestMs": -541.961
+        },
+        {
+          "ms": 87.901,
+          "afterRequestMs": -250.892
+        }
+      ],
+      "optionalRequests": [
+        {
+          "url": "http://127.0.0.1:4173/images/yamdy-kitchen.webp",
+          "status": 200,
+          "bytes": 87827
+        },
+        {
+          "url": "http://127.0.0.1:4173/assets/YamdyScene-BR_0owCh.js",
+          "status": 200,
+          "bytes": 153681
+        },
+        {
+          "url": "http://127.0.0.1:4173/assets/editorial-motion-Dv0c4HSz.js",
+          "status": 200,
+          "bytes": 45116
+        },
+        {
+          "url": "http://127.0.0.1:4173/models/yamdy-logo.glb",
+          "status": 200,
+          "bytes": 309419
+        }
+      ],
+      "contrast": 1
+    },
+    "mobile": {
+      "performance": 93,
+      "accessibility": 100,
+      "metrics": {
+        "first-contentful-paint": 2522.0309,
+        "largest-contentful-paint": 2620.5308999999997,
+        "total-blocking-time": 6,
+        "cumulative-layout-shift": 0.00008571647224197465,
+        "max-potential-fid": 62
+      },
+      "marks": [
+        {
+          "name": "yamdy:enhancement-requested",
+          "afterRequestMs": 0
+        }
+      ],
+      "longTasks": [
+        {
+          "ms": 216.376,
+          "afterRequestMs": -997.045
+        }
+      ],
+      "optionalRequests": [],
+      "contrast": 1
+    }
+  }
+}

@@ -1,0 +1,63 @@
+{
+  "scope": "Local production Chrome lab audits; maximum potential FID is not field INP",
+  "reports": [
+    {
+      "name": "v2-before",
+      "fetchTime": "2026-10-02T21:46:32.310Z",
+      "lighthouseVersion": "13.5.0",
+      "performance": 0.6,
+      "accessibility": 0.95,
+      "metrics": {
+        "first-contentful-paint": 1188.8950000000002,
+        "largest-contentful-paint": 1365.3740000000003,
+        "total-blocking-time": 877,
+        "cumulative-layout-shift": 0.0004111518241750764,
+        "max-potential-fid": 593
+      }
+    },
+    {
+      "name": "v2-verified-desktop",
+      "fetchTime": "2026-10-02T22:34:09.391Z",
+      "lighthouseVersion": "13.5.0",
+      "performance": 0.98,
+      "accessibility": 1,
+      "metrics": {
+        "first-contentful-paint": 570.6685,
+        "largest-contentful-paint": 615.251375,
+        "total-blocking-time": 69.5,
+        "cumulative-layout-shift": 0.000404531987418309,
+        "max-potential-fid": 293
+      }
+    },
+    {
+      "name": "v2-verified-mobile",
+      "fetchTime": "2026-10-02T22:34:51.096Z",
+      "lighthouseVersion": "13.5.0",
+      "performance": 0.83,
+      "accessibility": 1,
+      "metrics": {
+        "first-contentful-paint": 2128.4150999999997,
+        "largest-contentful-paint": 2345.0613249999997,
+        "total-blocking-time": 462,
+        "cumulative-layout-shift": 0.00008392473996266916,
+        "max-potential-fid": 1191
+      }
+    }
+  ],
+  "model": {
+    "sourceSha256": "6a5f2efca930c412f2bc7933817f8acb1d35bb0944a3031322fb7edb79ad7b29",
+    "shapes": 12,
+    "holes": 4,
+    "curveSegments": 8,
+    "depth": 16,
+    "meshes": 1,
+    "primitives": 2,
+    "vertices": 10984,
+    "triangles": 7296,
+    "bytes": 309228,
+    "gzipBytes": 92724,
+    "previousVertices": 49008,
+    "nodeOriginalExtrusionMs": 265,
+    "nodeGenerationMs": 915
+  }
+}

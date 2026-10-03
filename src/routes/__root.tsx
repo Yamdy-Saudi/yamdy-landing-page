@@ -11,6 +11,7 @@ import {
 import { useEffect, type ReactNode } from "react";
 
 import appCss from "../styles.css?url";
+import displayFont from "@fontsource/montserrat/files/montserrat-latin-600-normal.woff2?url";
 import { reportLovableError } from "../lib/lovable-error-reporting";
 
 function NotFoundComponent() {
@@ -78,14 +79,45 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "Lovable App" },
-      { name: "description", content: "Lovable Generated Project" },
-      { name: "author", content: "Lovable" },
-      { property: "og:title", content: "Lovable App" },
-      { property: "og:description", content: "Lovable Generated Project" },
+      { title: "Yamdy | The Growth Brain for Restaurant Delivery Apps" },
+      {
+        name: "description",
+        content:
+          "Yamdy watches your restaurant delivery business, recommends the next move and helps execute after your approval. Starting with HungerStation.",
+      },
+      { name: "author", content: "Yamdy" },
+      { name: "theme-color", content: "#258948" },
+      {
+        property: "og:title",
+        content: "Yamdy | The growth brain for restaurants on delivery apps",
+      },
+      {
+        property: "og:description",
+        content:
+          "A clear next move for your delivery business. Starting with HungerStation. Human approved. Then executed.",
+      },
       { property: "og:type", content: "website" },
+      { property: "og:url", content: "https://yamdy.net/" },
+      { property: "og:site_name", content: "Yamdy" },
+      { property: "og:locale", content: "en_SA" },
+      { property: "og:image", content: "https://yamdy.net/og-yamdy.png" },
+      { property: "og:image:width", content: "1200" },
+      { property: "og:image:height", content: "630" },
+      {
+        property: "og:image:alt",
+        content: "Yamdy. The growth brain for restaurants on delivery apps.",
+      },
       { name: "twitter:card", content: "summary_large_image" },
-      { name: "twitter:site", content: "@Lovable" },
+      {
+        name: "twitter:title",
+        content: "Yamdy | The growth brain for restaurants on delivery apps",
+      },
+      {
+        name: "twitter:description",
+        content:
+          "Find the next move for your restaurant delivery business. Starting with HungerStation.",
+      },
+      { name: "twitter:image", content: "https://yamdy.net/og-yamdy.png" },
     ],
     links: [
       {
@@ -93,6 +125,15 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
         href: appCss,
       },
       { rel: "icon", href: "/favicon.ico", type: "image/x-icon" },
+      { rel: "apple-touch-icon", href: "/apple-touch-icon.png" },
+      { rel: "canonical", href: "https://yamdy.net/" },
+      {
+        rel: "preload",
+        href: displayFont,
+        as: "font",
+        type: "font/woff2",
+        crossOrigin: "anonymous",
+      },
     ],
   }),
   shellComponent: RootShell,
@@ -106,6 +147,38 @@ function RootShell({ children }: { children: ReactNode }) {
     <html lang="en">
       <head>
         <HeadContent />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@graph": [
+                {
+                  "@type": "Organization",
+                  "@id": "https://yamdy.net/#organization",
+                  name: "Yamdy",
+                  url: "https://yamdy.net",
+                  logo: "https://yamdy.net/brand/yamdy-logo.png",
+                  address: {
+                    "@type": "PostalAddress",
+                    addressLocality: "Riyadh",
+                    addressCountry: "SA",
+                  },
+                },
+                {
+                  "@type": "SoftwareApplication",
+                  name: "Yamdy",
+                  url: "https://app.yamdy.net",
+                  applicationCategory: "BusinessApplication",
+                  operatingSystem: "Web",
+                  description:
+                    "Delivery-channel recommendations and human-approved execution for restaurants. Starting with HungerStation.",
+                  publisher: { "@id": "https://yamdy.net/#organization" },
+                },
+              ],
+            }),
+          }}
+        />
       </head>
       <body>
         {children}
