@@ -1,11 +1,11 @@
 import { AppLink, Logo } from "./Primitives";
-import { RiyadhOperations } from "./RiyadhOperations";
+import { RiyadhRestaurantScene } from "./RiyadhRestaurantScene";
 
 export function SaudiContext() {
   return (
     <section id="saudi-fb" className="local-section chapter" aria-labelledby="saudi-title">
-      <div className="chapter-shell local-layout">
-        <div>
+      <div className="local-layout">
+        <div className="local-editorial">
           <p className="editorial-eyebrow">BUILT FOR SAUDI F&B</p>
           <h2 id="saudi-title">
             Built in Riyadh
@@ -20,7 +20,7 @@ export function SaudiContext() {
             <li>Real restaurant operating context</li>
           </ul>
         </div>
-        <RiyadhOperations />
+        <RiyadhRestaurantScene />
       </div>
     </section>
   );
