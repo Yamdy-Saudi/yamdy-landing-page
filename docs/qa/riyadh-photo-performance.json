@@ -1,0 +1,41 @@
+{
+  "date": "2026-10-03",
+  "runs": {
+    "desktop": {
+      "performance": 97,
+      "accessibility": 100,
+      "lcpMs": 856.4911000000002,
+      "tbtMs": 64.50000000000011,
+      "cls": 0.000404531987418309,
+      "contrast": 1
+    },
+    "mobile": {
+      "performance": 79,
+      "accessibility": 100,
+      "lcpMs": 2881.7741,
+      "tbtMs": 395,
+      "cls": 0.00008399640925384139,
+      "contrast": 1
+    }
+  },
+  "final": {
+    "desktop": {
+      "performance": 100,
+      "accessibility": 100,
+      "lcpMs": 616.7407000000001,
+      "tbtMs": 0,
+      "cls": 0.000036304129758910604
+    },
+    "mobile": {
+      "performance": 93,
+      "accessibility": 100,
+      "lcpMs": 2612.8327,
+      "tbtMs": 0,
+      "cls": 0.00008392473996266916
+    }
+  },
+  "notes": [
+    "Initial offscreen connector measurement was deferred until the existing shared reveal event.",
+    "Final runs are sequential local production Lighthouse audits, not field INP."
+  ]
+}
